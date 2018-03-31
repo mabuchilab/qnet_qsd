@@ -1,6 +1,6 @@
 .PHONY: clean clean-test clean-pyc clean-build clean-venvs line pep8 docs dist install develop help
 .DEFAULT_GOAL := help
-CONDA_PACKAGES =  pytest pytest-cov pytest-xdist coverage sphinx sphinx_rtd_theme ipython pep8 flake8 wheel sympy
+CONDA_PACKAGES =  anaconda pytest-cov pytest-xdist coverage sphinx_rtd_theme flake8
 TESTENV =
 #TESTENV = MATPLOTLIBRC=tests
 TESTOPTIONS = --doctest-modules --cov=qnet_qsd
@@ -50,22 +50,18 @@ lint: ## check style with flake8
 pep8: ## check style with pep8
 	pep8 src tests
 
-
 test:  test35 test36 ## run tests on every Python version
-
 
 .venv/py35/bin/py.test:
 	@conda create -y -m -p .venv/py35 python=3.5 $(CONDA_PACKAGES)
-	@.venv/py35/bin/pip install -e .[dev]
+	@.venv/py35/bin/pip install --process-dependency-links -e .[dev]
 
 test35: .venv/py35/bin/py.test ## run tests for Python 3.5
 	$(TESTENV) $< -v $(TESTOPTIONS) $(TESTS)
 
-
-
 .venv/py36/bin/py.test:
 	@conda create -y -m -p .venv/py36 python=3.6 $(CONDA_PACKAGES)
-	@.venv/py36/bin/pip install -e .[dev]
+	@.venv/py36/bin/pip install --process-dependency-links -e .[dev]
 
 test36: .venv/py36/bin/py.test ## run tests for Python 3.6
 	$(TESTENV) $< -v $(TESTOPTIONS) $(TESTS)
@@ -83,9 +79,9 @@ coverage: test36  ## generate coverage report in ./htmlcov
 
 test-release: clean-build clean-pyc dist ## package and upload a release to test.pypi.org
 	twine upload --repository-url https://test.pypi.org/legacy/ dist/*
+
 release: clean-build clean-pyc dist ## package and upload a release
 	twine upload dist/*
-
 
 dist: clean-build clean-pyc ## builds source and wheel package
 	python setup.py sdist
@@ -93,13 +89,13 @@ dist: clean-build clean-pyc ## builds source and wheel package
 	ls -l dist
 
 install: clean-build clean-pyc ## install the package to the active Python's site-packages
-	pip install .
+	pip install --process-dependency-links .
 
 uninstall:  ## uinstall the package from the active Python's site-packages
-	pip uninstall qnet_qsd
+	pip uninstall --process-dependency-links qnet_qsd
 
 develop: clean-build clean-pyc ## install the package to the active Python's site-packages, in develop mode
-	pip install -e .
+	pip install --process-dependency-links -e .
 
 develop-test: develop ## run tests within the active Python environment
 	$(TESTENV) py.test -v $(TESTOPTIONS) $(TESTS)

@@ -24,7 +24,7 @@ try:
 except OSError:
     history = ''
 
-requirements = []
+requirements = ['sympy', 'qnet==2.0.0-dev', 'trajectorydata']
 
 dev_requirements = [
     'coverage', 'pytest', 'pytest-cov', 'pytest-xdist', 'twine', 'pep8',
@@ -46,6 +46,9 @@ setup(
         'Programming Language :: Python :: 3.6',
     ],
     description="A code-converter and simulation driver between QNET and QSD",
+    dependency_links=[
+        'git+https://github.com/mabuchilab/QNET.git@develop#egg=QNET-2.0.0-dev'
+    ],
     install_requires=requirements,
     extras_require={
         'dev': dev_requirements,

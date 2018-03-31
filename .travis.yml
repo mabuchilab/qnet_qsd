@@ -11,10 +11,10 @@ install:
   - hash -r
   - conda config --set always_yes yes --set changeps1 no
   - conda update -q conda
-  - conda info -a
-  - conda create -q -n test-environment python=$TRAVIS_PYTHON_VERSION pytest pytest-cov pytest-xdist coverage sphinx sphinx_rtd_theme ipython pep8 flake8 wheel sympy
+  - conda info -a anaconda pytest-cov pytest-xdist coverage sphinx_rtd_theme flake8
+  - conda create -q -n test-environment python=$TRAVIS_PYTHON_VERSION
   - source activate test-environment
-  - pip install -e .[dev]
+  - pip install -e --process-dependency-links .[dev]
   - pip install coveralls
 
 script:
