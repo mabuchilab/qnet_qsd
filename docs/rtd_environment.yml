@@ -12,4 +12,16 @@ dependencies:
   - flake8
   - wheel
   - pip:
+      - better-apidoc
+      - trajectorydata
+      - argh
+      - livereload
+      - pathtools
+      - port-for
+      - requests-toolbelt
+      - sphinx-autobuild
+      - tables
+      - tqdm
+      - twine
+      - watchdog
       - git+https://github.com/mabuchilab/QNET.git@develop#egg=QNET-2.0.0-dev
