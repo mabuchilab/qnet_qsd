@@ -11,3 +11,5 @@ dependencies:
   - sphinx_rtd_theme
   - flake8
   - wheel
+  - pip:
+      - git+https://github.com/mabuchilab/QNET.git@develop#egg=QNET-2.0.0-dev
