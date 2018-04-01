@@ -28,7 +28,8 @@ requirements = ['sympy', 'qnet==2.0.0-dev', 'trajectorydata']
 
 dev_requirements = [
     'coverage', 'pytest', 'pytest-cov', 'pytest-xdist', 'twine', 'pep8',
-    'flake8', 'wheel', 'sphinx', 'sphinx-autobuild', 'sphinx_rtd_theme']
+    'flake8', 'wheel', 'sphinx', 'sphinx-autobuild', 'sphinx_rtd_theme',
+    'qutip']
 dev_requirements.append('better-apidoc')
 
 

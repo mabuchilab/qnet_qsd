@@ -14,6 +14,7 @@ install:
   - conda info -a
   - conda create -q -n test-environment python=$TRAVIS_PYTHON_VERSION anaconda pytest-cov pytest-xdist coverage sphinx_rtd_theme flake8
   - source activate test-environment
+  - conda install -y -c conda-forge qutip
   - pip install --process-dependency-links -e .[dev]
   - pip install coveralls
 

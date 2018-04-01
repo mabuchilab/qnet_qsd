@@ -54,6 +54,8 @@ test:  test35 test36 ## run tests on every Python version
 
 .venv/py35/bin/py.test:
 	@conda create -y -m -p .venv/py35 python=3.5 $(CONDA_PACKAGES)
+	@# if the conda installation does not work, simply comment out the following line, and let pip handle it
+	@conda install -y -c conda-forge -p .venv/py35 qutip
 	@.venv/py35/bin/pip install --process-dependency-links -e .[dev]
 
 test35: .venv/py35/bin/py.test ## run tests for Python 3.5
@@ -61,6 +63,8 @@ test35: .venv/py35/bin/py.test ## run tests for Python 3.5
 
 .venv/py36/bin/py.test:
 	@conda create -y -m -p .venv/py36 python=3.6 $(CONDA_PACKAGES)
+	@# if the conda installation does not work, simply comment out the following line, and let pip handle it
+	@conda install -y -c conda-forge -p .venv/py36 qutip
 	@.venv/py36/bin/pip install --process-dependency-links -e .[dev]
 
 test36: .venv/py36/bin/py.test ## run tests for Python 3.6
