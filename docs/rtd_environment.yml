@@ -1,25 +1,10 @@
 name: py36
 channels:
   - defaults
-  - conda-forge
 dependencies:
   - python=3.6
   - anaconda
-  - pytest-cov
-  - pytest-xdist
-  - coverage
-  - flake8
   - pip:
       - better-apidoc
       - trajectorydata
-      - argh
-      - livereload
-      - pathtools
-      - port-for
-      - requests-toolbelt
-      - sphinx-autobuild
-      - tables
-      - tqdm
-      - twine
-      - watchdog
       - git+https://github.com/mabuchilab/QNET.git@develop#egg=QNET-2.0.0-dev

@@ -8,6 +8,9 @@ build:
     image: latest
 python:
    version: 3.6
+   # RTD has some bugs with pip_install. Hence, we use setup_py_install, but
+   # this will not take into account any of the dependencies defined in
+   # setup.py. Everything must be defined in docs/rtd_environment.yml
    setup_py_install: true
    pip_install: false
    extra_requirements:
