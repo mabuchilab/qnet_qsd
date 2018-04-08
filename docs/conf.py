@@ -34,14 +34,14 @@ nitpicky = True
 
 extensions = [
     'sphinx.ext.autodoc',
-    'sphinx.ext.autosummary',
-    'sphinx.ext.coverage',
     'sphinx.ext.doctest',
+    'sphinx.ext.coverage',
+    'sphinx.ext.viewcode',
+    'sphinx.ext.napoleon',
+    'sphinx.ext.autosummary',
     'sphinx.ext.extlinks',
     'sphinx.ext.ifconfig',
-    'sphinx.ext.napoleon',
     'sphinx.ext.todo',
-    'sphinx.ext.viewcode',
     'dollarmath',
     'sphinx.ext.inheritance_diagram',
 ]
@@ -54,7 +54,7 @@ intersphinx_mapping = {
     'python': ('https://docs.python.org/3.6', None),
     'sympy': ('http://docs.sympy.org/latest/', None),
     'numpy': ('https://docs.scipy.org/doc/numpy/', None),
-    'matplotlib': ('http://matplotlib.org/', None)
+    'matplotlib': ('https://matplotlib.org/', None)
 }
 
 # Add any paths that contain templates here, relative to this directory.
@@ -79,7 +79,6 @@ autoclass_content = 'both'
 autodoc_member_order = 'bysource'
 
 
-html_use_smartypants = True
 html_last_updated_fmt = '%b %d, %Y'
 html_split_index = False
 html_sidebars = {
