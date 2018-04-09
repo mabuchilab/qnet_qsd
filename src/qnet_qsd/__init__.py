@@ -248,7 +248,7 @@ class QSDCodeGen(object):
         num_vals (dict of :obj:`~sympy.core.symbol.Symbol` to float)): Map of
             symbols to numeric value. Must specify a value for any symbol in
             `syms`.
-        traj_data (:obj:`~qnet.misc.trajectory_data.TrajectoryData`): The
+        traj_data (:obj:`trajectorydata.TrajectoryData`): The
             accumulated trajectory data. Every time the :meth:`run`,
             respectively the :meth:`run_delayed` method is
             called, the resulting trajectory data is incorporated. Thus, by
@@ -909,7 +909,7 @@ class QSDCodeGen(object):
                 point in time, when the :meth:`run_delayed` routine is called.
 
         Returns:
-            qnet.misc.trajectory_data.TrajectoryData: Averaged data obtained
+            trajectorydata.TrajectoryData: Averaged data obtained
             from the newly simulated trajectories only. None if `delay=True`.
 
         Raises:
@@ -979,7 +979,7 @@ class QSDCodeGen(object):
 
         Raises:
             TypeError: If `map` does not return a list of
-                :class:`~qnet.misc.trajectory_data.TrajectoryData` instances.
+                :class:`~trajectory_data.TrajectoryData` instances.
 
         Note:
             Parallel execution is achieved by passing an appropriate `map`
@@ -1308,7 +1308,7 @@ def qsd_run_worker(kwargs, _runner=None):
             executable
         operators(dict or OrderedDict of str to str)): Mapping of operator name
             to filename, see `operators` parameter of
-            :meth:`~qnet.misc.trajectory_data.TrajectoryData.from_qsd_data`
+            :meth:`~trajectory_data.TrajectoryData.from_qsd_data`
         workdir (str or None): The working directory in which to execute the
             executable (relative to the current working directory). The output
             files defined in `operators` will be created in this folder. If
@@ -1331,7 +1331,6 @@ def qsd_run_worker(kwargs, _runner=None):
     import os
     import shutil
     import tempfile
-    from qnet.misc.trajectory_data import TrajectoryData
     if _runner is None:
         _runner = sp.check_output
     executable = str(kwargs['executable'])

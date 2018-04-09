@@ -52,7 +52,7 @@ def datadir(tmpdir, request):
 
 def qsd_traj(datadir, folder, seed):
     """Return a proto-fixture that returns a
-    :class:`~qdyn.misc.trajectory_data.TrajectoryData` instance based on
+    :class:`TrajectoryData` instance based on
     all the ``*.out`` file in the given folder (relative to the test datadir),
     and with the given `seed`.
     """
